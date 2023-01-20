@@ -7,13 +7,43 @@ class Despesa {
         this.descricao = descricao
         this.valor = valor
     }
+    validarDados() {
+        for(let i in this) {
+            if (this[i] == undefined || this[i] == '' || this[i] == null) {
+                return false
+            }
+        }
+        return true
+    }
 }
+
+class Local {
+    constructor () {
+        let id = localStorage.getItem('id')
+        if (id === null) {
+            localStorage.setItem('id', 0)
+        }
+    }
+
+    getProximoId() {
+        let proximoId = localStorage.getItem('id')
+        return parseInt(proximoId) + 1
+    }
+
+    gravar(d) {
+        let id = this.getProximoId()
+        localStorage.setItem(id, JSON.stringify(d))
+        localStorage.setItem('id', id)
+    }
+}
+
+let novoObjeto = new Local()
 
 function cadastrarDespesa() {
     let ano = document.getElementById('ano')
     let mes = document.getElementById('mes')
     let dia = document.getElementById('dia')
-    let tipo =document.getElementById('tipo')
+    let tipo = document.getElementById('tipo')
     let descricao = document.getElementById('descricao')
     let valor = document.getElementById('valor')
 
@@ -25,6 +55,14 @@ function cadastrarDespesa() {
         descricao.value,
         valor.value
     )
-    console.log(despesa)
+
+    if(despesa.validarDados()) {
+        novoObjeto.gravar(despesa)
+        $('#sucessoGravacao').modal('show')
+    } else {
+        $('#erroGravacao').modal('show')
+    }
 }
+
+
 

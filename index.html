@@ -1,7 +1,10 @@
-<html>
+<html land="pt-br">
 	<head>
     <meta charset="utf-8" />
-		<title>Orçamento pessoal</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Orçamento pessoal - Cadastro</title>
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -107,6 +110,41 @@
         </div>
       </div>
     </div>
+
+    <!-- Modal erro no cadastro-->
+    <div class="modal fade" id="erroGravacao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header text-danger">
+            <h5 class="modal-title fs-5" id="exampleModalLabel">Erro na gravação</h5>
+          </div>
+          <div class="modal-body">
+            Existem campos obrigatórios não preenchidos
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Voltar e corrigir</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal sucesso no cadastro-->
+    <div class="modal fade" id="sucessoGravacao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header text-success">
+            <h5 class="modal-title fs-5" id="exampleModalLabel">Cadastro realizado!</h5>
+          </div>
+          <div class="modal-body">
+            Despesa cadastrada com sucesso.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Voltar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </body>	
 
 </html>
